@@ -6,8 +6,8 @@
   "homepage": "./",
   "scripts": {
     "dev": "electron .",
-    "build": "electron-builder --win --ia32 --portable",
-    "build:publish": "electron-builder --win --ia32 --portable -p always"
+    "build": "electron-builder --win --ia32",
+    "build:publish": "electron-builder --win --ia32 -p always"
   },
   "author": "thrdchld",
   "license": "MIT",
