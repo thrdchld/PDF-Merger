@@ -22,7 +22,7 @@ jobs:
           # Download FFmpeg essentials 32-bit build
           $ErrorActionPreference = "Stop"
           $ProgressPreference = 'SilentlyContinue'
-          $ffmpegUrl = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win32-gpl.zip"
+          $ffmpegUrl = "https://github.com/defisym/FFmpeg-Builds-Win32/releases/download/latest/ffmpeg-master-latest-win32-gpl.zip"
           $zipPath = "${{ github.workspace }}\ffmpeg.zip"
           $extractPath = "${{ github.workspace }}\ffmpeg-extracted"
           
