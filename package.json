@@ -21,7 +21,8 @@
     "files": [
       "main.js",
       "pdfmerger.html",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "ffmpeg.dll"
     ],
     "win": {
       "target": [
