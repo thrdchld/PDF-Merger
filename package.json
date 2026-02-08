@@ -1,0 +1,45 @@
+{
+  "name": "pdf-merger",
+  "version": "1.0.0",
+  "description": "Simple PDF Merger desktop application",
+  "main": "main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "electron .",
+    "build": "electron-builder --win --ia32 --portable",
+    "build:publish": "electron-builder --win --ia32 --portable -p always"
+  },
+  "author": "thrdchld",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.pdfmerger.app",
+    "productName": "PDF Merger",
+    "files": [
+      "main.js",
+      "pdfmerger.html",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ],
+      "certificateFile": null,
+      "certificatePassword": null,
+      "signingHashAlgorithms": [
+        "sha256"
+      ]
+    },
+    "portable": {
+      "nsis": false
+    }
+  }
+}

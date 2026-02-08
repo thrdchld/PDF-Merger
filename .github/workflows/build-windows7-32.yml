@@ -1,4 +1,4 @@
-name: Build Windows 7 (32-bit) single-file EXE
+name: Build Windows 7 (32-bit) portable EXE with Electron
 
 on:
   workflow_dispatch:
@@ -6,29 +6,27 @@ on:
     branches: [ main ]
 
 jobs:
-  build-win7-32:
+  build-electron-win7-32:
     runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.8 (x86)
-        uses: actions/setup-python@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.8'
-          architecture: 'x86'
+          node-version: '18.x'
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          npm install
 
-      - name: Build single-file 32-bit EXE with PyInstaller
+      - name: Build 32-bit portable EXE with electron-builder
         run: |
-          python -m PyInstaller --onefile --noconsole --add-data "pdfmerger.html;." main.py
+          npm run build
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pdf-merger-win7-32
+          name: pdf-merger-portable-exe
           path: dist/*.exe
