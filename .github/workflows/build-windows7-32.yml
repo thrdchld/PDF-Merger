@@ -1,0 +1,34 @@
+name: Build Windows 7 (32-bit) single-file EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-win7-32:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.8 (x86)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+          architecture: 'x86'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build single-file 32-bit EXE with PyInstaller
+        run: |
+          python -m PyInstaller --onefile --noconsole --add-data "pdfmerger.html;." main.py
+
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-merger-win7-32
+          path: dist/*.exe
