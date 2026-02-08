@@ -1,2 +1,2 @@
-pywebview==3.8
+pywebview==3.7.2
 pyinstaller==5.13.0
