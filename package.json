@@ -38,8 +38,6 @@
         "sha256"
       ]
     },
-    "portable": {
-      "nsis": false
-    }
+    
   }
 }
